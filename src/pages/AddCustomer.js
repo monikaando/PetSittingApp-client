@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import qs from "qs";
 import FormLayout from "../components/layout/Form";
 import axios from "axios";
 const AddCustomer = props => {
@@ -25,11 +26,15 @@ const AddCustomer = props => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(customer);
-      const res = await axios.post("/api/customers", body, config);
+      const body = qs.stringify(customer);
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/customers`,
+        body,
+        config
+      );
       console.log(res.data._id);
       props.history.push("/auth/addpet", { id: res.data._id });
     } catch (err) {

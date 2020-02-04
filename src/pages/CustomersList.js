@@ -8,7 +8,7 @@ function CustomersList() {
   }, []);
   const [items, setItems] = useState([]);
   const fetchItems = async () => {
-    const list = await axios.get("/api/customers");
+    const list = await axios.get(`${process.env.REACT_APP_API}/api/customers`);
 
     const items = list.data;
     setItems(items);

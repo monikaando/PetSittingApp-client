@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FormLayout from "../components/layout/Form";
 import axios from "axios";
+import qs from "qs";
 
 const EditCustomer = props => {
   useEffect(() => {
@@ -16,7 +17,9 @@ const EditCustomer = props => {
   });
 
   const fetchItems = async () => {
-    const customer = await axios.get(`/api/customers/${props.match.params.id}`);
+    const customer = await axios.get(
+      `${process.env.REACT_APP_API}/api/customers/${props.match.params.id}`
+    );
     const items = customer.data;
     setFormData({
       name: items.name,
@@ -40,12 +43,12 @@ const EditCustomer = props => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(customer);
+      const body = qs.stringify(customer);
       const res = await axios.put(
-        `/api/customers/edit/${props.match.params.id}`,
+        `${process.env.REACT_APP_API}/api/customers/edit/${props.match.params.id}`,
         body,
         config
       );

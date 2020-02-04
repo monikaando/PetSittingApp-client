@@ -27,11 +27,13 @@ function MyCalendar(props) {
     var jobs = "";
     if (props.id) {
       console.log("props id is: ", props.id);
-      let response = await axios.get(`/api/jobs/fromcustomer/${props.id}`);
+      let response = await axios.get(
+        `${process.env.REACT_APP_API}/api/jobs/fromcustomer/${props.id}`
+      );
       jobs = response.data;
       console.log(response);
     } else {
-      let response = await axios.get(`/api/jobs/`);
+      let response = await axios.get(`${process.env.REACT_APP_API}/api/jobs/`);
       jobs = response.data;
     }
 

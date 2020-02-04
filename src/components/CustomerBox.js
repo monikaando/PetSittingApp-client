@@ -30,7 +30,7 @@ const CustomerBox = ({ name, address, phone, priceperday, id }, props) => {
         <Link
           onClick={() =>
             axios
-              .delete(`/api/customers/${id}`)
+              .delete(`${process.env.REACT_APP_API}/api/customers/${id}`)
               .then(() => window.location.reload())
               .catch(err => console.log(err))
           }

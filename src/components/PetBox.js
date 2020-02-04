@@ -25,7 +25,7 @@ const PetBox = ({ name, type, comments, petid, customerid }) => {
         <Link
           onClick={() =>
             axios
-              .delete(`/api/pets/${petid}`)
+              .delete(`${process.env.REACT_APP_API}/api/pets/${petid}`)
               .then(() => window.location.reload())
               .catch(err => console.log(err))
           }

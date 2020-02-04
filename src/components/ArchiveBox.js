@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import qs from "qs";
 
 const ArchiveBox = ({
   jobid,
@@ -30,11 +31,15 @@ const ArchiveBox = ({
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(updatedArchived);
-      await axios.put(`/api/jobs/${state.jobid}`, body, config);
+      const body = qs.stringify(updatedArchived);
+      await axios.put(
+        `${process.env.REACT_APP_API}/api/jobs/${state.jobid}`,
+        body,
+        config
+      );
       window.location.reload();
     } catch (err) {}
   };
@@ -44,16 +49,20 @@ const ArchiveBox = ({
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(updatedPaid);
-      await axios.put(`/api/jobs/${state.jobid}`, body, config);
+      const body = qs.stringify(updatedPaid);
+      await axios.put(
+        `${process.env.REACT_APP_API}/api/jobs/${state.jobid}`,
+        body,
+        config
+      );
       window.location.reload();
     } catch (err) {}
   };
   const deleteJob = async () => {
-    await axios.delete(`/api/jobs/${state.jobid}`);
+    await axios.delete(`${process.env.REACT_APP_API}/api/jobs/${state.jobid}`);
     window.location.reload();
   };
   return (

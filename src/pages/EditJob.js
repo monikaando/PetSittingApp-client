@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
+import qs from "qs";
 import "react-datepicker/dist/react-datepicker.css";
 import FormLayout from "../components/layout/Form";
 import axios from "axios";
@@ -26,7 +27,9 @@ const AddJob = props => {
   });
 
   const fetchItems = async () => {
-    const jobRequest = await axios.get(`/api/jobs/${props.match.params.id}`);
+    const jobRequest = await axios.get(
+      `${process.env.REACT_APP_API}/api/jobs/${props.match.params.id}`
+    );
     const job = jobRequest.data;
 
     setFormData({
@@ -102,11 +105,15 @@ const AddJob = props => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(newJob);
-      const res = await axios.put(`/api/jobs/${jobid}`, body, config);
+      const body = qs.stringify(newJob);
+      const res = await axios.put(
+        `${process.env.REACT_APP_API}/api/jobs/${jobid}`,
+        body,
+        config
+      );
       console.log(res.data);
 
       props.history.push(`/auth/customers/${customer}`);

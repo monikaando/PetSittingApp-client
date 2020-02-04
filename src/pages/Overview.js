@@ -9,16 +9,24 @@ const Overview = () => {
   const [allJobs, setAllJobs] = useState({});
 
   const fetchItems = async () => {
-    const response2020 = await axios.get(`/api/yearlytotal/2020`);
+    const response2020 = await axios.get(
+      `${process.env.REACT_APP_API}/api/yearlytotal/2020`
+    );
     const jobs2020 = response2020.data;
     console.log(jobs2020.data);
-    const response2019 = await axios.get(`/api/yearlytotal/2019`);
+    const response2019 = await axios.get(
+      `${process.env.REACT_APP_API}/api/yearlytotal/2019`
+    );
     const jobs2019 = response2019.data;
     console.log(jobs2019.data);
-    const response2018 = await axios.get(`/api/yearlytotal/2018`);
+    const response2018 = await axios.get(
+      `${process.env.REACT_APP_API}/api/yearlytotal/2018`
+    );
     const jobs2018 = response2018.data;
     console.log(jobs2018.data);
-    const response2017 = await axios.get(`/api/yearlytotal/2017`);
+    const response2017 = await axios.get(
+      `${process.env.REACT_APP_API}/api/yearlytotal/2017`
+    );
     const jobs2017 = response2017.data;
     console.log(jobs2017.data);
     setAllJobs({
@@ -44,7 +52,7 @@ const Overview = () => {
         <div className="columns box is-multiline has-text-centered">
           <p className="column is-full">
             <span className="has-text-weight-semibold has-text-link">
-              Total summary:
+              Total summary:{" "}
             </span>
             {calculateTotal(allJobs.year2020) +
               calculateTotal(allJobs.year2019)}{" "}
@@ -52,13 +60,13 @@ const Overview = () => {
           </p>
           <p className="column is-full">
             <span className="has-text-weight-semibold has-text-primary">
-              2020:
+              2020:{" "}
             </span>
             {calculateTotal(allJobs.year2020)} €
           </p>
           <p className="column is-full">
             <span className="has-text-weight-semibold has-text-primary">
-              2019:
+              2019:{" "}
             </span>
             {calculateTotal(allJobs.year2019)} €
           </p>
@@ -66,13 +74,13 @@ const Overview = () => {
             <span className="has-text-weight-semibold has-text-primary">
               2018:{" "}
             </span>
-            ...... €
+            {calculateTotal(allJobs.year2018)} €
           </p>
           <p className="column is-full">
             <span className="has-text-weight-semibold has-text-primary">
               2017:{" "}
             </span>
-            ...... €
+            {calculateTotal(allJobs.year2017)} €
           </p>
         </div>
       </FormLayout>

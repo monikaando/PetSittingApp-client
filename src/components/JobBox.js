@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import qs from "qs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -30,11 +31,15 @@ const JobBox = ({
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(updatedArchived);
-      await axios.put(`/api/jobs/${state.jobid}`, body, config);
+      const body = qs.stringify(updatedArchived);
+      await axios.put(
+        `${process.env.REACT_APP_API}/api/jobs/${state.jobid}`,
+        body,
+        config
+      );
       window.location.reload();
     } catch (err) {}
   };
@@ -44,16 +49,20 @@ const JobBox = ({
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(updatedPaid);
-      await axios.put(`/api/jobs/${state.jobid}`, body, config);
+      const body = qs.stringify(updatedPaid);
+      await axios.put(
+        `${process.env.REACT_APP_API}/api/jobs/${state.jobid}`,
+        body,
+        config
+      );
       window.location.reload();
     } catch (err) {}
   };
   const deleteJob = async () => {
-    await axios.delete(`/api/jobs/${state.jobid}`);
+    await axios.delete(`${process.env.REACT_APP_API}/api/jobs/${state.jobid}`);
     window.location.reload();
   };
 
@@ -62,10 +71,10 @@ const JobBox = ({
   }
   if (paid) {
     return (
-      <div className="columns">
+      <div className="column is-full">
         <div
           key={state.jobid}
-          className="column box is-full has-margin-bottom-20"
+          className="columns box is-full has-margin-bottom-20"
         >
           <div className="column is-2">
             <p className="has-text-weight-semibold">Start:</p>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormLayout from "../components/layout/Form";
 import axios from "axios";
+import qs from "qs";
 
 const AddPet = props => {
   const [formData, setFormData] = useState({
@@ -26,11 +27,15 @@ const AddPet = props => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(newPet);
-      const res = await axios.post("/api/pets", body, config);
+      const body = qs.stringify(newPet);
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/pets`,
+        body,
+        config
+      );
       console.log(res.data);
 
       props.history.push(`/auth/customers/${props.location.state.id}`);

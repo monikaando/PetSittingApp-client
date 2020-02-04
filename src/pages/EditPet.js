@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FormLayout from "../components/layout/Form";
 import axios from "axios";
+import qs from "qs";
 
 const AddPet = props => {
   useEffect(() => {
@@ -15,7 +16,9 @@ const AddPet = props => {
   });
 
   const fetchItems = async () => {
-    const pet = await axios.get(`/api/pets/${props.match.params.id}`);
+    const pet = await axios.get(
+      `${process.env.REACT_APP_API}/api/pets/${props.match.params.id}`
+    );
     const items = pet.data;
     setFormData({
       customerid: items.customerid,
@@ -40,12 +43,12 @@ const AddPet = props => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         }
       };
-      const body = JSON.stringify(newPet);
+      const body = qs.stringify(newPet);
       const res = await axios.put(
-        `/api/pets/${props.match.params.id}`,
+        `${process.env.REACT_APP_API}/api/pets/${props.match.params.id}`,
         body,
         config
       );

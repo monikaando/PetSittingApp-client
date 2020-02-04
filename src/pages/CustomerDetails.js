@@ -13,7 +13,9 @@ function CustomerDetails(props) {
   }, []);
   const [items, setItems] = useState(null);
   const fetchItems = async () => {
-    const customer = await axios.get(`/api/customers/${props.match.params.id}`);
+    const customer = await axios.get(
+      `${process.env.REACT_APP_API}/api/customers/${props.match.params.id}`
+    );
     const items = customer.data;
     setItems(items);
   };
