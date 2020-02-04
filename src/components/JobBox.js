@@ -3,27 +3,18 @@ import qs from "qs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const JobBox = ({
-  jobid,
-  startdate,
-  enddate,
-  numberofdays,
-  totalprice,
-  priceperday,
-  paid,
-  archived,
-  description
-}) => {
+const JobBox = props => {
   const [state, setState] = useState({
-    jobid,
-    startdate,
-    enddate,
-    numberofdays,
-    totalprice,
-    priceperday,
-    paid,
-    archived,
-    description
+    jobid: props.jobid,
+    startdate: props.startdate,
+    enddate: props.enddate,
+    numberofdays: props.numberofdays,
+    totalprice: props.totalprice,
+    priceperday: props.priceperday,
+    paid: props.paid,
+    archived: props.archived,
+    description: props.description,
+    forceUpdate: props.forceUpdate
   });
 
   const setArchived = async () => {
@@ -40,7 +31,7 @@ const JobBox = ({
         body,
         config
       );
-      window.location.reload();
+      props.forceUpdate();
     } catch (err) {}
   };
 
@@ -58,18 +49,18 @@ const JobBox = ({
         body,
         config
       );
-      window.location.reload();
+      props.forceUpdate();
     } catch (err) {}
   };
   const deleteJob = async () => {
     await axios.delete(`${process.env.REACT_APP_API}/api/jobs/${state.jobid}`);
-    window.location.reload();
+    props.forceUpdate();
   };
 
-  if (archived) {
+  if (props.archived) {
     return <div></div>;
   }
-  if (paid) {
+  if (props.paid) {
     return (
       <div className="column is-full">
         <div

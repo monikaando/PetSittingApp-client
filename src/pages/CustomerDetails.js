@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, useCallback, Fragment } from "react";
 import axios from "axios";
 import "../App.scss";
 import Calendar from "../components/myCalendar";
@@ -19,7 +19,7 @@ function CustomerDetails(props) {
     const items = customer.data;
     setItems(items);
   };
-
+  const forceUpdate = useCallback(() => fetchItems(), []);
   return items ? (
     <Fragment>
       <div className="columns">
@@ -33,6 +33,7 @@ function CustomerDetails(props) {
             phone={items.phone}
             priceperday={items.priceperday}
             id={items._id}
+            forceUpdate={forceUpdate}
           />
         </div>
       </div>

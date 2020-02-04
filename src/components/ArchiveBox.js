@@ -90,12 +90,12 @@ const ArchiveBox = ({
       <div className="column is-1 has-text-weight-semibold ">
         <p>Paid: {}</p>
       </div>
-      <div className="column is-3 has-margin-left-20">
+      <div className="column is-3 has-margin-left-20-desktop">
         <p className="has-text-weight-semibold">Comments:</p>
         <p>{state.description}</p>
       </div>
 
-      <div className="columns is-2 has-margin-left-30 has-margin-bottom-60 has-margin-top-20">
+      <div className="columns is-2 has-margin-left-30-desktop has-margin-bottom-60 has-margin-top-20">
         <div
           onClick={setArchived}
           className="button is-dark has-text-weight-semibold is-fullwidth has-margin-bottom-15"
