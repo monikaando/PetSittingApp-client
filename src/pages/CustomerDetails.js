@@ -8,18 +8,27 @@ import JobBox from "../components/JobBox";
 import ArchiveBox from "../components/ArchiveBox";
 // import { Link } from "react-router-dom";
 function CustomerDetails(props) {
+  console.log("calling overview");
   useEffect(() => {
     fetchItems();
   }, []);
   const [items, setItems] = useState(null);
   const fetchItems = async () => {
-    const customer = await axios.get(
+    let customer = await axios.get(
       `${process.env.REACT_APP_API}/api/customers/${props.match.params.id}`
     );
-    const items = customer.data;
-    setItems(items);
+    let custInfo = customer.data;
+    setItems({ ...custInfo, update: true });
   };
-  const forceUpdate = useCallback(() => fetchItems(), []);
+  const forceUpdate = async () => {
+    console.log("UPDATING EVERYTHING");
+    let customer = await axios.get(
+      `${process.env.REACT_APP_API}/api/customers/${props.match.params.id}`
+    );
+    let custInfo = customer.data;
+    setItems({ ...custInfo, update: !items.update });
+    console.log(items.update);
+  };
   return items ? (
     <Fragment>
       <div className="columns">
@@ -33,7 +42,6 @@ function CustomerDetails(props) {
             phone={items.phone}
             priceperday={items.priceperday}
             id={items._id}
-            forceUpdate={forceUpdate}
           />
         </div>
       </div>
@@ -97,6 +105,7 @@ function CustomerDetails(props) {
                 archived={job.archived}
                 description={job.description}
                 customerid={items._id}
+                forceUpdate={forceUpdate}
               />
             ))}
 
@@ -110,7 +119,7 @@ function CustomerDetails(props) {
       </div>
       <div className="columns">
         <div className="column is-8 is-offset-2 is-full-mobile is-paddingless has-padding-left-5-mobile has-padding-right-5-mobile mobileCalendarHeight has-margin-top-60">
-          <Calendar id={items._id} />
+          <Calendar id={items._id} update={items.update} />
         </div>
       </div>
       <div className="columns">
@@ -130,6 +139,7 @@ function CustomerDetails(props) {
                 archived={job.archived}
                 description={job.description}
                 customerid={items._id}
+                forceUpdate={forceUpdate}
               />
             ))}
         </div>

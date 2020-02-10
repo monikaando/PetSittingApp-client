@@ -55,7 +55,9 @@ const Overview = () => {
               Total summary:{" "}
             </span>
             {calculateTotal(allJobs.year2020) +
-              calculateTotal(allJobs.year2019)}{" "}
+              calculateTotal(allJobs.year2019) +
+              calculateTotal(allJobs.year2018) +
+              calculateTotal(allJobs.year2017)}{" "}
             €
           </p>
           <p className="column is-full">

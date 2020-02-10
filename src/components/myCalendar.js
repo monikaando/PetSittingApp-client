@@ -18,26 +18,24 @@ function MyCalendar(props) {
       paid: ""
     }
   ]);
-  console.log("history ", props.history);
+  console.log("calling calendar ");
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [props.update]);
 
   const fetchItems = async () => {
     var jobs = "";
     if (props.id) {
-      console.log("props id is: ", props.id);
       let response = await axios.get(
         `${process.env.REACT_APP_API}/api/jobs/fromcustomer/${props.id}`
       );
       jobs = response.data;
-      console.log(response);
     } else {
       let response = await axios.get(`${process.env.REACT_APP_API}/api/jobs/`);
       jobs = response.data;
     }
 
-    let newArray = [...events];
+    let newArray = [];
 
     if (Object.keys(jobs).length === 0) {
       return;
@@ -68,7 +66,6 @@ function MyCalendar(props) {
   };
 
   const handleSelectEvent = event => {
-    console.log(props.history);
     props.history.push(`/auth/customers/${event.customer._id}`);
   };
 
