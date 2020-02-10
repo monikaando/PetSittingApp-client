@@ -142,7 +142,7 @@ function CustomerDetails(props) {
         ))}
     </Fragment>
   ) : (
-    <div className="columns is-centered">
+    <div className="columns is-centered has-text-centered-mobile">
       <img src="/images/loading-dog.gif" alt="Loading" width="15%" />
     </div>
   );
