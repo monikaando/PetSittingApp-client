@@ -104,10 +104,10 @@ const JobBox = props => {
             <p className="control">
               <span className="select">
                 <select onChange={setPaid}>
-                  <option selected value={false}>
-                    no
+                  <option value={false}>no</option>
+                  <option selected value={true}>
+                    yes
                   </option>
-                  <option value={true}>yes</option>
                 </select>
               </span>
             </p>
@@ -115,10 +115,10 @@ const JobBox = props => {
             <p className="control">
               <span className="select">
                 <select onChange={setPaid}>
-                  <option value={false}>no</option>
-                  <option selected value={true}>
-                    yes
+                  <option selected value={false}>
+                    no
                   </option>
+                  <option value={true}>yes</option>
                 </select>
               </span>
             </p>
