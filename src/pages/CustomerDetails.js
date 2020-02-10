@@ -146,7 +146,9 @@ function CustomerDetails(props) {
       </div>
     </Fragment>
   ) : (
-    <h1>Loading...</h1>
+    <div className="columns is-centered">
+      <img src="/images/loading-dog.gif" alt="Loading" width="15%" />
+    </div>
   );
 }
 export default CustomerDetails;
