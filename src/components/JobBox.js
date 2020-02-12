@@ -67,9 +67,10 @@ const JobBox = props => {
       props.forceUpdate();
     } catch (err) {}
   };
+
   const deleteJob = async () => {
     await axios.delete(`${process.env.REACT_APP_API}/api/jobs/${state.jobid}`);
-    props.forceUpdate();
+    setTimeout(props.forceUpdate(), 150);
   };
 
   if (props.archived) {
