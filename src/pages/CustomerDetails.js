@@ -42,6 +42,7 @@ function CustomerDetails(props) {
             phone={items.phone}
             priceperday={items.priceperday}
             id={items._id}
+            props={props}
           />
         </div>
       </div>
@@ -64,6 +65,7 @@ function CustomerDetails(props) {
                 comments={pet.comments}
                 petid={pet._id}
                 customerid={items._id}
+                forceUpdate={forceUpdate}
               />
             ))}
 

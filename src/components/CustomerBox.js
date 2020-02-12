@@ -2,7 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const CustomerBox = ({ name, address, phone, priceperday, id }, props) => {
+const CustomerBox = ({ name, address, phone, priceperday, id, props }) => {
+  const deleteCustomer = async () => {
+    await axios.delete(`${process.env.REACT_APP_API}/api/customers/${id}`);
+    console.log("CB props: ", props);
+    props.history.push("/auth/customers");
+  };
   return (
     <div>
       <div className="columns box has-margin-bottom-40">
@@ -27,18 +32,13 @@ const CustomerBox = ({ name, address, phone, priceperday, id }, props) => {
           Edit customer
         </Link>
 
-        <Link
-          onClick={() =>
-            axios
-              .delete(`${process.env.REACT_APP_API}/api/customers/${id}`)
-              .then(() => window.location.reload())
-              .catch(err => console.log(err))
-          }
+        <div
+          onClick={deleteCustomer}
           to="/auth/customers"
           className="button is-danger has-text-weight-semibold has-margin-bottom-10 is-fullwidth"
         >
           Delete customer
-        </Link>
+        </div>
       </div>
     </div>
   );
