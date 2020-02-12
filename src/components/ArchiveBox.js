@@ -52,41 +52,45 @@ const ArchiveBox = props => {
 
   if (state.archived) {
     return (
-      <div key={state.jobid} className="columns has-margin-bottom-20">
-        <div className="column is-2">
-          <p className="has-text-weight-semibold">Start:</p>
-          <p className="has-text-weight-semibold has-text-primary">
-            {state.startdate}
-          </p>
-        </div>
-        <div className="column is-2">
-          <p className="has-text-weight-semibold">End:</p>
-          <p className="has-text-weight-semibold has-text-primary">
-            {state.enddate}
-          </p>
-        </div>
-        <div className="column is-1 has-text-weight-semibold">
-          <p>Days:</p>
-          <p>{state.numberofdays}</p>
-        </div>
-        <div className="column is-1 has-text-weight-semibold">
-          <p>Total:</p>
-          <p>{state.totalprice} €</p>
-        </div>
-        <div className="column is-1 has-text-weight-semibold ">
-          <p>Paid: </p>
-          <p>{state.paid ? "Yes" : "No"}</p>
-        </div>
-        <div className="column is-3 has-margin-left-20-desktop">
-          <p className="has-text-weight-semibold">Comments:</p>
-          <p>{state.description}</p>
-        </div>
-        <div className="columns is-2 has-margin-left-30-desktop has-margin-bottom-60 has-margin-top-20">
-          <div
-            onClick={setArchived}
-            className="button is-dark has-text-weight-semibold is-fullwidth has-margin-bottom-15"
-          >
-            Unarchive
+      <div className="columns">
+        <div className="column box is-8 is-offset-2 is-8-mobile is-offset-2-mobile has-margin-top-20 has-margin-bottom-10 has-padding-left-30 has-padding-right-30 has-padding-top-30">
+          <div key={state.jobid} className="columns">
+            <div className="column is-2">
+              <p className="has-text-weight-semibold">Start:</p>
+              <p className="has-text-weight-semibold has-text-primary">
+                {state.startdate}
+              </p>
+            </div>
+            <div className="column is-2">
+              <p className="has-text-weight-semibold">End:</p>
+              <p className="has-text-weight-semibold has-text-primary">
+                {state.enddate}
+              </p>
+            </div>
+            <div className="column is-1 has-text-weight-semibold">
+              <p>Days:</p>
+              <p>{state.numberofdays}</p>
+            </div>
+            <div className="column is-1 has-text-weight-semibold">
+              <p>Total:</p>
+              <p>{state.totalprice} €</p>
+            </div>
+            <div className="column is-1 has-text-weight-semibold ">
+              <p>Paid: </p>
+              <p>{state.paid ? "Yes" : "No"}</p>
+            </div>
+            <div className="column is-3 has-margin-left-20-desktop">
+              <p className="has-text-weight-semibold">Comments:</p>
+              <p>{state.description}</p>
+            </div>
+            <div className="columns is-2 has-margin-left-30-desktop has-margin-left-15-mobile has-margin-right-15-mobile has-margin-bottom-30 has-margin-top-10">
+              <div
+                onClick={setArchived}
+                className="button is-dark has-text-weight-semibold is-fullwidth has-margin-bottom-15"
+              >
+                Unarchive
+              </div>
+            </div>
           </div>
         </div>
       </div>

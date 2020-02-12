@@ -42,6 +42,7 @@ function CustomerDetails(props) {
             phone={items.phone}
             priceperday={items.priceperday}
             id={items._id}
+            props={props}
           />
         </div>
       </div>
@@ -64,6 +65,7 @@ function CustomerDetails(props) {
                 comments={pet.comments}
                 petid={pet._id}
                 customerid={items._id}
+                forceUpdate={forceUpdate}
               />
             ))}
 
@@ -122,31 +124,27 @@ function CustomerDetails(props) {
           <Calendar id={items._id} update={items.update} />
         </div>
       </div>
-      <div className="columns">
-        <div className="column box is-8 is-offset-2 is-8-mobile is-offset-2-mobile has-margin-top-50 has-margin-bottom-50 has-padding-left-30 has-padding-right-30 has-padding-top-60">
-          {items.jobs &&
-            items.jobs.map(job => (
-              <ArchiveBox
-                id={items._id}
-                key={job._id}
-                jobid={job._id}
-                startdate={job.startdate}
-                enddate={job.enddate}
-                numberofdays={job.numberofdays}
-                priceperday={items.priceperday}
-                totalprice={job.totalprice}
-                paid={job.paid}
-                archived={job.archived}
-                description={job.description}
-                customerid={items._id}
-                forceUpdate={forceUpdate}
-              />
-            ))}
-        </div>
-      </div>
+      {items.jobs &&
+        items.jobs.map(job => (
+          <ArchiveBox
+            id={items._id}
+            key={job._id}
+            jobid={job._id}
+            startdate={job.startdate}
+            enddate={job.enddate}
+            numberofdays={job.numberofdays}
+            priceperday={items.priceperday}
+            totalprice={job.totalprice}
+            paid={job.paid}
+            archived={job.archived}
+            description={job.description}
+            customerid={items._id}
+            forceUpdate={forceUpdate}
+          />
+        ))}
     </Fragment>
   ) : (
-    <div className="columns is-centered">
+    <div className="columns is-centered has-text-centered-mobile">
       <img src="/images/loading-dog.gif" alt="Loading" width="15%" />
     </div>
   );
