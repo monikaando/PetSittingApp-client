@@ -1,5 +1,10 @@
 import React, { Fragment, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "../src/components/auth/Signup";
 import Login from "../src/components/auth/Login";
@@ -64,7 +69,8 @@ const App = () => {
             />
             <PrivateRoute exact path="/auth/addjob/:id" component={AddJob} />
             <PrivateRoute exact path="/auth/editjob/:id" component={EditJob} />
-            <Route path="*" component={PageNotFound} />
+            <Route path="/404" component={PageNotFound} />
+            <Redirect from="*" to="/404" />
           </Switch>
         </Fragment>
       </Router>
