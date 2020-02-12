@@ -3,7 +3,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../App.scss";
 
-const PetBox = ({ name, type, comments, petid, customerid }) => {
+const PetBox = ({ name, type, comments, petid, customerid, forceUpdate }) => {
+  const deletePet = async () => {
+    await axios.delete(`${process.env.REACT_APP_API}/api/pets/${petid}`);
+    forceUpdate();
+  };
+
   return (
     <div className="columns box has-margin-bottom-40">
       <p className="column is-one-fifth has-text-weight-semibold has-text-primary has-margin-right-20">
@@ -22,18 +27,12 @@ const PetBox = ({ name, type, comments, petid, customerid }) => {
           Edit
         </Link>
 
-        <Link
-          onClick={() =>
-            axios
-              .delete(`${process.env.REACT_APP_API}/api/pets/${petid}`)
-              .then(() => window.location.reload())
-              .catch(err => console.log(err))
-          }
-          to={`/auth/customers/${customerid}`}
+        <div
+          onClick={deletePet}
           className="button is-danger has-text-weight-semibold has-margin-bottom-10 buttonwidth"
         >
           Delete
-        </Link>
+        </div>
       </div>
     </div>
   );
