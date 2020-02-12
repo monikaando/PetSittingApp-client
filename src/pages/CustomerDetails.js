@@ -6,13 +6,22 @@ import CustomerBox from "../components/CustomerBox";
 import PetBox from "../components/PetBox";
 import JobBox from "../components/JobBox";
 import ArchiveBox from "../components/ArchiveBox";
-// import { Link } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
+import { fadeInDown } from "react-animations";
+
+const slideAnimation = keyframes`${fadeInDown}`;
+
+const SlideDiv = styled.div`
+  animation: 0.5s ${slideAnimation};
+`;
+
 function CustomerDetails(props) {
-  console.log("calling overview");
   useEffect(() => {
     fetchItems();
   }, []);
+
   const [items, setItems] = useState(null);
+
   const fetchItems = async () => {
     let customer = await axios.get(
       `${process.env.REACT_APP_API}/api/customers/${props.match.params.id}`
@@ -20,8 +29,8 @@ function CustomerDetails(props) {
     let custInfo = customer.data;
     setItems({ ...custInfo, update: true });
   };
+
   const forceUpdate = async () => {
-    console.log("UPDATING EVERYTHING");
     let customer = await axios.get(
       `${process.env.REACT_APP_API}/api/customers/${props.match.params.id}`
     );
@@ -29,10 +38,11 @@ function CustomerDetails(props) {
     setItems({ ...custInfo, update: !items.update });
     console.log(items.update);
   };
+
   return items ? (
     <Fragment>
       <div className="columns">
-        <div className="column is-8 is-offset-2 is-8-mobile is-offset-2-mobile">
+        <SlideDiv className="column is-8 is-offset-2 is-8-mobile is-offset-2-mobile">
           <h3 className="is-size-3 has-text-weight-semibold has-text-primary has-text-centered-mobile has-margin-bottom-20">
             CUSTOMER
           </h3>
@@ -44,10 +54,10 @@ function CustomerDetails(props) {
             id={items._id}
             props={props}
           />
-        </div>
+        </SlideDiv>
       </div>
       <div className="columns">
-        <div className="column is-8 is-offset-2 is-8-mobile is-offset-2-mobile">
+        <SlideDiv className="column is-8 is-offset-2 is-8-mobile is-offset-2-mobile">
           <div className="columns">
             <div className="column">
               <h3 className="is-size-3 has-text-weight-semibold has-text-info has-text-centered-mobile has-margin-bottom-20 has-margin-top-40">
@@ -81,10 +91,10 @@ function CustomerDetails(props) {
               Add pet
             </button>
           </div>
-        </div>
+        </SlideDiv>
       </div>
       <div className="columns">
-        <div className="column is-8 is-offset-2 is-8-mobile is-offset-2-mobile is-paddingless">
+        <SlideDiv className="column is-8 is-offset-2 is-8-mobile is-offset-2-mobile is-paddingless">
           <div className="columns">
             <div className="column">
               <h3 className="is-size-3 has-text-weight-semibold has-text-warning has-text-centered-mobile has-margin-bottom-5 has-margin-top-40">
@@ -117,7 +127,7 @@ function CustomerDetails(props) {
           >
             Add Job
           </button>
-        </div>
+        </SlideDiv>
       </div>
       <div className="columns">
         <div className="column is-8 is-offset-2 is-full-mobile is-paddingless has-padding-left-5-mobile has-padding-right-5-mobile mobileCalendarHeight has-margin-top-60">
