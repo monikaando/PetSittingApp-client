@@ -3,17 +3,17 @@ Client part.
 
 The third and the final project during Ironhack bootcamp. Application for managing a pet sitting business, includes: customers, calendar, jobs, income summary.
 
-MongoDB
+* MongoDB
 
-Express
+* Express
 
-React
+* React
 
-Redux
+* Redux
 
-NodeJS
+* NodeJS
 
-Bulma
+* Bulma
 
 You can check the application here:
 
