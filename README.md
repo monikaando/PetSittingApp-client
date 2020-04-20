@@ -30,8 +30,8 @@ Created: 04.02.2020
 
 <hr>
 Print screens form the application:
-
-
+<br>
+<br>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372553/PetSitterApp/_1.png" />
 </div>
