@@ -1,6 +1,6 @@
 PetSitterApp
 <br>Client part.
-<br>Screenshots from the app below.
+<br><b>Screenshots from the app below.</b>
 
 The third and the final project during Ironhack bootcamp. Application for managing a pet sitting business, includes: customers, calendar, jobs, income summary.
 <br><br><b>This aplication won HackShow</b> - the contest for the best application from Web Dev Ironhack Bootcamps (full time and part time).
