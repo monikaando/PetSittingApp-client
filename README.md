@@ -49,7 +49,7 @@ Print screens form the application:
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372232/PetSitterApp/5.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372387/PetSitterApp/5.png" />
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
