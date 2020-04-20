@@ -27,36 +27,36 @@ Created by: Monika Swidzinska and Dominik Antunovic - two students of Ironhack B
 
 Created: 04.02.2020
 
-Printscreens form the application:
+Print screens form the application:
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371959/PetSitterApp/1.png" />
 </div>
-<br>
+<hr>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371959/PetSitterApp/2.png" />
 </div>
-<br>
+<hr>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/3.png" />
 </div>
-<br>
+<hr>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/4.png" />
 </div>
-<br>
+<hr>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/5.png" />
 </div>
-<br>
+<hr>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/6.png" />
 </div>
-<br>
+<hr>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/7.png" />
 </div>
-<br>
+<hr>
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/8.png" />
 </div>
