@@ -30,7 +30,7 @@ Created: 04.02.2020
 
 
 <hr>
-Print screens form the application:
+Screenshots form the application (including allerts, after provising wrong data):
 <br>
 <br>
 <div style="display: flex; justify-content: center">
