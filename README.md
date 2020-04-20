@@ -27,7 +27,10 @@ Created by: Monika Swidzinska and Dominik Antunovic - two students of Ironhack B
 
 Created: 04.02.2020
 
+
+<hr>
 Print screens form the application:
+
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371959/PetSitterApp/1.png" />
@@ -46,7 +49,7 @@ Print screens form the application:
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/5.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372232/PetSitterApp/5.png" />
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
