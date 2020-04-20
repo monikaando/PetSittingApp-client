@@ -33,7 +33,7 @@ Print screens form the application:
 
 
 <div style="display: flex; justify-content: center">
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371959/PetSitterApp/1.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372553/PetSitterApp/_1.png" />
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
@@ -41,7 +41,7 @@ Print screens form the application:
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587371958/PetSitterApp/3.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372553/PetSitterApp/_3.png" />
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
@@ -49,7 +49,7 @@ Print screens form the application:
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372387/PetSitterApp/5.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1587372553/PetSitterApp/_5.png" />
 </div>
 <hr>
 <div style="display: flex; justify-content: center">
