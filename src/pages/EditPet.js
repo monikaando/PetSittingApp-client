@@ -114,7 +114,7 @@ const AddPet = props => {
                 <input
                   type="submit"
                   className="button is-info"
-                  value="Udapte"
+                  value="Update"
                 />
               </p>
             </div>
