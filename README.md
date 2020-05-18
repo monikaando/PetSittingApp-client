@@ -1,7 +1,6 @@
 PetSitterApp
 <br>Client part.
-<br>Server part: https://github.com/mswidzinska/PetSitterApp-server
-<br>Server part: @PetSitterApp-server
+<br><a href="https://github.com/mswidzinska/PetSitterApp-server" target="_blank">Server part</a>
 <br><b>Screenshots from the app below.</b>
 
 The third and the final project during Ironhack bootcamp. Application for managing a pet sitting business, includes: customers, calendar, jobs, income summary.
